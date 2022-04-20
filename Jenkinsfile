@@ -33,7 +33,7 @@ pipeline {
         }
 
         always {
-            recordIssues enabledForFailure: true, tool: cppCheck(pattern: 'reports/cppcheck/*.xml')
+            recordIssues enabledForFailure: true, failOnError: true, tools: [cppCheck(pattern: 'reports/cppcheck/*.xml')]
         }
     }
 }
