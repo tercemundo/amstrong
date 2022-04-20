@@ -32,8 +32,5 @@ pipeline {
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'html/', reportFiles: 'html/', reportName: 'Documentación', reportTitles: ''])
             archive "documentation.zip"
         }
-
-        always {
-        }
     }
 }
