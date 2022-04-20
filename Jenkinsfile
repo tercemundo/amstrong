@@ -19,11 +19,21 @@ pipeline {
                 sh "zip documentation.zip -r html/*"
             }
         }
+        
+        stage('Análisis estático') {
+            steps {
+                sh 'make cppcheck-xml'
+            }
+        }
     }
     post {
         success {
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'html/', reportFiles: 'html/', reportName: 'Documentación', reportTitles: ''])
             archive "documentation.zip"
+        }
+
+        always {
+            recordIssues enabledForFailure: true, tool: cppCheck(pattern: 'reports/cppcheck/*.xml')
         }
     }
 }
