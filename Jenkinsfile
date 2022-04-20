@@ -26,6 +26,12 @@ pipeline {
                 recordIssues enabledForFailure: true, failOnError: true, qualityGates: [[threshold: 1, type: 'TOTAL', unstable: false]], tools: [cppCheck(pattern: 'reports/cppcheck/*.xml')]
             }
         }
+        stage('Tests unitarios') {
+            steps {
+                sh 'make tests-xml'
+                junit 'reports/cmocka/*.xml'
+            }
+        }
     }
     post {
         success {
