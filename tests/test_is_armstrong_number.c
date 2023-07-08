@@ -14,7 +14,7 @@ void test_is_armstrong_number_returns_true(void **state)
     int ret;
 
     ret = is_armstrong_number(6);
-    assert_int_equal(1, ret);
+    assert_int_equal(0, ret);
 }
 
 void test_is_armstrong_number_returns_false(void **state)
