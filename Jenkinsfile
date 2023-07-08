@@ -3,8 +3,8 @@ pipeline {
 
     stages {
         stage('Obtener el repositorio') {
-            steps {
-                git branch: 'main', url: 'https://github.com/tercemundo/amstrong.git'
+            steps { 
+                 sh 'git clone https://github.com/tercemundo/amstrong.git'
             }
         }
         
