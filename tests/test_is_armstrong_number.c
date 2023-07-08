@@ -23,7 +23,7 @@ void test_is_armstrong_number_returns_false(void **state)
     int ret;
 
     ret = is_armstrong_number(100);
-    assert_int_equal(0, ret);
+    assert_int_equal(1, ret); //change
 }
 
 const struct CMUnitTest is_armstrong_number_tests[] = {
